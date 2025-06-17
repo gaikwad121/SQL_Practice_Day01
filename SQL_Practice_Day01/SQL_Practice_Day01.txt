@@ -1,0 +1,140 @@
+1. create database It_Company;
+
+2. use It_Company;
+3. CREATE TABLE Employee_Details (
+       Employee_Id INT PRIMARY KEY,
+    Employee_Name VARCHAR(100) NOT NULL,
+     Emplyee_City_Name VARCHAR(100),
+    Employee_Department VARCHAR(100),
+     Employee_Salary INT,
+      Employee_JoiningDate DATE
+     );
+
+4.mysql> INSERT INTO Employee_Details(
+    ->   Employee_ID,
+    ->   Employee_Name,
+    ->   Employee_Department,
+    ->   Employee_Salary,
+    ->   Emplyee_City_Name,   -- Fix here
+    ->   Employee_JoiningDate
+    -> )
+    -> VALUES
+    -> (101, 'Jyoti Gaikwad',    'HR',        62000, 'Pune',     '2021-01-15'),
+    -> (102, 'Rahul Sharma',     'Finance',   48000, 'Mumbai',   '2022-03-01'),
+    -> (103, 'Sneha Patil',      'IT',        72000, 'Nashik',   '2020-11-20'),
+    -> (104, 'Amit Kulkarni',    'Sales',     52000, 'Pune',     '2023-06-10'),
+    -> (105, 'Nikita Deshmukh',  'IT',        68000, 'Solapur',  '2021-09-05'),
+    -> (106, 'Ravi Pawar',       'Finance',   45000, 'Mumbai',   '2022-12-01'),
+    -> (107, 'Sakshi Jadhav',    'HR',        51000, 'Nashik',   '2023-01-01'),
+    -> (108, 'Ajay Mahajan',     'IT',        82000, 'Nagpur',   '2019-04-12'),
+    -> (109, 'Priya Bhosale',    'Sales',     39000, 'Pune',     '2023-08-01'),
+    -> (110, 'Ankit More',       'Finance',   53000, 'Solapur',  '2021-07-21');
+
+5.mysql> select * from Employee_Details;
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+| Employee_Id | Employee_Name   | Emplyee_City_Name | Employee_Department | Employee_Salary | Employee_JoiningDate |
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+|         101 | Jyoti Gaikwad   | Pune              | HR                  |           62000 | 2021-01-15           |
+|         102 | Rahul Sharma    | Mumbai            | Finance             |           48000 | 2022-03-01           |
+|         103 | Sneha Patil     | Nashik            | IT                  |           72000 | 2020-11-20           |
+|         104 | Amit Kulkarni   | Pune              | Sales               |           52000 | 2023-06-10           |
+|         105 | Nikita Deshmukh | Solapur           | IT                  |           68000 | 2021-09-05           |
+|         106 | Ravi Pawar      | Mumbai            | Finance             |           45000 | 2022-12-01           |
+|         107 | Sakshi Jadhav   | Nashik            | HR                  |           51000 | 2023-01-01           |
+|         108 | Ajay Mahajan    | Nagpur            | IT                  |           82000 | 2019-04-12           |
+|         109 | Priya Bhosale   | Pune              | Sales               |           39000 | 2023-08-01           |
+|         110 | Ankit More      | Solapur           | Finance             |           53000 | 2021-07-21           |
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+
+6. select*from Employee_Details where Employee_Salary>50000;
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+| Employee_Id | Employee_Name   | Emplyee_City_Name | Employee_Department | Employee_Salary | Employee_JoiningDate |
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+|         101 | Jyoti Gaikwad   | Pune              | HR                  |           62000 | 2021-01-15           |
+|         103 | Sneha Patil     | Nashik            | IT                  |           72000 | 2020-11-20           |
+|         104 | Amit Kulkarni   | Pune              | Sales               |           52000 | 2023-06-10           |
+|         105 | Nikita Deshmukh | Solapur           | IT                  |           68000 | 2021-09-05           |
+|         107 | Sakshi Jadhav   | Nashik            | HR                  |           51000 | 2023-01-01           |
+|         108 | Ajay Mahajan    | Nagpur            | IT                  |           82000 | 2019-04-12           |
+|         110 | Ankit More      | Solapur           | Finance             |           53000 | 2021-07-21           |
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+
+7. select Employee_Name,Employee_Salary from Employee_Details;
++-----------------+-----------------+
+| Employee_Name   | Employee_Salary |
++-----------------+-----------------+
+| Jyoti Gaikwad   |           62000 |
+| Rahul Sharma    |           48000 |
+| Sneha Patil     |           72000 |
+| Amit Kulkarni   |           52000 |
+| Nikita Deshmukh |           68000 |+
+| Ravi Pawar      |           45000 |
+| Sakshi Jadhav   |           51000 |
+| Ajay Mahajan    |           82000 |
+| Priya Bhosale   |           39000 |
+| Ankit More      |           53000 |
++-----------------+-----------------+
+
+
+
+
+Q1) Write a query to fetch all employee names and salaries from Employee_Details.
+
+-->  select Employee_Name,Employee_Salary from Employee_Details;
++-----------------+-----------------+
+| Employee_Name   | Employee_Salary |
++-----------------+-----------------+
+| Jyoti Gaikwad   |           62000 |
+| Rahul Sharma    |           48000 |
+| Sneha Patil     |           72000 |
+| Amit Kulkarni   |           52000 |
+| Nikita Deshmukh |           68000 |
+| Ravi Pawar      |           45000 |
+| Sakshi Jadhav   |           51000 |
+| Ajay Mahajan    |           82000 |
+| Priya Bhosale   |           39000 |
+| Ankit More      |           53000 |
++-----------------+-----------------+
+
+Q2) Write a query to find all employees from the IT department.
+
+-----> select * from Employee_Details where Employee_Department='IT';
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+| Employee_Id | Employee_Name   | Emplyee_City_Name | Employee_Department | Employee_Salary | Employee_JoiningDate |
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+|         103 | Sneha Patil     | Nashik            | IT                  |           72000 | 2020-11-20           |
+|         105 | Nikita Deshmukh | Solapur           | IT                  |           68000 | 2021-09-05           |
+|         108 | Ajay Mahajan    | Nagpur            | IT                  |           82000 | 2019-04-12           |
++-------------+-----------------+-------------------+---------------------+-----------------+----------------------+
+
+Q3) Write a query to count how many employees are from Pune.
+
+
+
+select * from Employee_Details where Emplyee_City_Name='Pune';
++-------------+---------------+-------------------+---------------------+-----------------+----------------------+
+| Employee_Id | Employee_Name | Emplyee_City_Name | Employee_Department | Employee_Salary | Employee_JoiningDate |
++-------------+---------------+-------------------+---------------------+-----------------+----------------------+
+|         101 | Jyoti Gaikwad | Pune              | HR                  |           62000 | 2021-01-15           |
+|         104 | Amit Kulkarni | Pune              | Sales               |           52000 | 2023-06-10           |
+|         109 | Priya Bhosale | Pune              | Sales               |           39000 | 2023-08-01           |
++-------------+---------------+-------------------+---------------------+-----------------+----------------------+
+
+Q3) Write a query to find the highest salary from the Employee_Details table.
+
+
+--> SELECT MAX(Employee_Salary) AS Highest_Salary FROM Employee_Details;
++----------------+
+| Highest_Salary |
++----------------+
+|          82000 |
++----------------+
+Q4) Write a query to find the smallest salary from the Employee_Details table.
+
+
+mysql> select MIN(Employee_Salary) As Smallest_Salary From Employee_Details;
++-----------------+
+| Smallest_Salary |
++-----------------+
+|           39000 |
++-----------------+
